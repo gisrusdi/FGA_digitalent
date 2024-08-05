@@ -179,3 +179,7 @@ plt.figure(figsize=(12, 8))
 sns.barplot(x='Importance', y='Feature', data=feature_importance_df)
 plt.title('Feature Importance')
 plt.show()
+
+import joblib
+
+joblib.dump(reg, 'flight_model.pkl')
