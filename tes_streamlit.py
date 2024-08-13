@@ -104,9 +104,16 @@ if st.button("Predict"):
     decoded_data = decode_results(sorted_data.copy(), label_encoders)
 
     # Tampilkan hasil
+    
+    # Tampilkan 5 hasil termurah dari kelas ekonomi
+    st.write("Top 5 Cheapest Economy Prices:")
+    economy_data = decoded_data[decoded_data['class'] == 'Economy'].head(5)
+    st.write(economy_data)
+
+    # Tampilkan 5 hasil termurah dari kelas business
+    st.write("Top 5 Cheapest Business Prices:")
+    business_data = decoded_data[decoded_data['class'] == 'Business'].head(5)
+    st.write(business_data)
+
     st.write("Estimated Flight Prices (sorted by cheapest):")
     st.write(decoded_data)
-
-    # Tampilkan 10 hasil termurah
-    st.write("Top 10 Cheapest Prices:")
-    st.write(decoded_data.head(10))
